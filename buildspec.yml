@@ -11,3 +11,4 @@ phases:
 artifacts:
   files:
     - '**/*'
+  name: myname-$AWS_REGION 
