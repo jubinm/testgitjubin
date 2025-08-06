@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies (if any)"
+  pre_build:
+    commands:
+      - echo "Stopping any running services"
+      - chmod +x script/stop.sh
+      - script/stop.sh
+  build:
+    commands:
+      - echo "Starting the app"
+      - chmod +x script/start.sh
+      - script/start.sh
+  post_build:
+    commands:
+      - echo "Validating the deployment"
+      - chmod +x script/validate.sh
+      - script/validate.sh
+
+artifacts:
+  files:
+    - '**/*'
